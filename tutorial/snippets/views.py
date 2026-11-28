@@ -24,7 +24,7 @@ class SnippetViewSet(viewsets.ModelViewSet):
        snippet = self.get_object()
        return Response(snippet.highlighted)
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        serializer.save(owner=self.request.user)
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
    queryset = User.objects.all()
